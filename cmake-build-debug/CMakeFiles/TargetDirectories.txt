@@ -1,0 +1,3 @@
+/home/elif/CLionProjects/odevYeni/cmake-build-debug/CMakeFiles/odevYeni.dir
+/home/elif/CLionProjects/odevYeni/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/elif/CLionProjects/odevYeni/cmake-build-debug/CMakeFiles/rebuild_cache.dir
