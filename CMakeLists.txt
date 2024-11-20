@@ -3,4 +3,5 @@ project(odevYeni)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(odevYeni main.cpp)
+add_executable(odevYeni main.cpp
+        lib.cpp)
