@@ -34,6 +34,7 @@ void evaluateGuess(string guess, string target) {
         }
     }
     cout << result << endl;
+
 }
 
 int main(){
@@ -63,4 +64,3 @@ int main(){
     }
     return 0;
 }
-//test1
