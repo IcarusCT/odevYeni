@@ -1,43 +1,31 @@
 #include<iostream>
+#include<string>
 
 using namespace std;
 
 void evaluateGuess(string guess, string target) {
-    string result = "";
+    string result;
+    int count[10] = {0}; // her rakamın kaç kez geçtiğini tutacak dizi
 
-    string targetUsed = "0000";
-    string guessUsed = "0000";
+    // hedefteki rakamların sıklığını say
+    for (char c : target)
+        count[c - '0']++;
 
+    // tahmindeki her rakam için kontrol et
     for (int i = 0; i < 4; i++) {
-        if(target[i] == guess[i]) {
-            result += "+";
-            targetUsed[i] = '1';
-            guessUsed[i] = '1';
-        }
-    }
-
-    for(int i = 0; i < 4; i++) {
-        if(guessUsed[i] == '0') {
-            for (int j = 0; j < 4; j++) {
-                if(targetUsed[j] == '0' && guess[i] == target[j]) {
-                    result += "o";
-                    targetUsed[j] = '1';
-                    guessUsed[i] = '1';
-                    break;
-                }
-            }
-        }
-    }
-    for (int i = 0; i < 4; i++) {
-        if(guessUsed[i] == '0') {
-            result += "x";
-        }
+        count[guess[i] - '0']--; // bu rakamı bir kez daha saymamak için
+        if (guess[i] == target[i])
+            result += '+';
+        else if (count[guess[i] - '0'] >= 0)
+            result += 'o';
+        else
+            result += 'x';
     }
     cout << result << endl;
-
 }
 
 int main(){
+    // random sayı oluşturma
     srand(time(0));
     int targetNum = rand() % 9000 + 1000;
     string target = to_string(targetNum);
@@ -45,6 +33,7 @@ int main(){
 
     string guess;
 
+    // player sırası ve yanlış input girilmemesi için kontrol
     int player = 1;
     while(true) {
         cout<< "player " << player <<" make your guess: " << endl;
@@ -64,4 +53,3 @@ int main(){
     }
     return 0;
 }
-//test
